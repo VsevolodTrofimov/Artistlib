@@ -1,0 +1,19 @@
+{
+  "name": "artist-library",
+  "version": "1.0.0",
+  "description": "Backend for artist-library, a tool for organizing a list of your favourite Danbooru artists.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "StargazingTux aka brotheroftux",
+  "license": "MIT",
+  "dependencies": {
+    "dateformat": "^2.0.0",
+    "express": "^4.15.2",
+    "google-auth-library": "^0.10.0",
+    "googleapis": "^19.0.0",
+    "nodejs-websocket": "^1.7.1",
+    "redis": "^2.7.1"
+  }
+}
