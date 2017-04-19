@@ -1,0 +1,20 @@
+.tag {
+  background: var(--gray);
+  color: var(--black);
+  padding: var(--margin-s);
+  margin: 0 var(--margin-s) var(--margin-s) 0;
+  border-radius: 2px;
+  font-size: var(--font-m);
+}
+
+.tag__delete {
+  margin-left: var(--margin-s);
+}
+
+.tagRow:last-child {
+  margin-bottom: -6px;
+}
+
+.tagRow > button {
+  margin-bottom: var(--margin-s);
+}

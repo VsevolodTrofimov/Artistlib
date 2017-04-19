@@ -1,0 +1,11 @@
+:root {
+  --margin-m: 36px;
+  --margin-s: 6px;
+  --font-xl: 48px;
+  --font-l: 30px;
+  --font-m: 20px;
+  --white: #ffffff;
+  --gray: #ebebeb;
+  --black: #2D2D34;
+  --column-width: calc((910px - var(--margin-m) * 2) / 3);
+}

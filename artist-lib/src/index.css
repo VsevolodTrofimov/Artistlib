@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+  padding: var(--margin-m);
+  font-family: "Roboto", sans-serif;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.items-center {
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  box-sizing: border-box;
+  height: 16px;
+  width: 16px;
+  padding: 0;
+  background: var(--black);
+  opacity: .2;
+  border: 0;
+  border-radius: 50%;
+}
+
+button:focus {
+  outline: 0;
+}

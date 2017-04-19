@@ -1,0 +1,29 @@
+.artist {
+  margin-bottom: var(--margin-m);
+  align-items: center;
+}
+
+.artist__card {
+  border-radius: 2px;
+  width: var(--column-width);
+  margin-right: var(--margin-m);
+  height: 112px;
+}
+
+.artist__card__name {
+  font-weight: 200;
+  font-size: var(--font-xl);
+  color: var(--white);
+  margin: 0;
+}
+
+@media (max-width: 910px) {
+  .artist__card {
+    margin-bottom: var(--margin-m);
+    margin-right: 0;
+    width: 100%;
+  }
+  .row.artist {
+    margin-bottom: calc(var(--margin-m) * 2);
+  }
+}
