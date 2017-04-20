@@ -11,7 +11,7 @@ var artists = [{
     personal: ['10/10']
   }
 }, {
-  name: 'kfsafsaf (into rain)',
+  name: 'GAE (into rain)',
   tags: {
     global: ['Personal Style'],
     personal: []

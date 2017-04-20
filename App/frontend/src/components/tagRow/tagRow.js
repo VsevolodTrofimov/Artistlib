@@ -4,8 +4,8 @@ import './tagRow.css'
 
 export default class TagRow extends React.Component {
   render() {
-    let tagList = this.props.tags.map((name) => {
-      return <Tag name={name} />
+    let tagList = this.props.tags.map((name, idx) => {
+      return <Tag name={name} key={idx} />
     })
 
     return (

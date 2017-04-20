@@ -1,5 +1,5 @@
 import React from 'react'
-import gradientToStyle from '../../../utility/gradientToStyle'
+import gradientToStyle from '~/utility/gradientToStyle'
 
 export default class NameBlock extends React.Component {
   render() {
