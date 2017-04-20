@@ -1,4 +1,6 @@
+// npm dependencies
 const fs = require('fs');
+const dateformat = require('dateformat');
 
 var logging = (() => {
   class Logging {
@@ -17,7 +19,8 @@ var logging = (() => {
     }
 
     log(caller, message) {
-      let formatted = '[' + caller + '] ' + message;
+      let formatted = '[' + dateformat(Date.now(), 'mm/dd/yy HH:MM') + ']' +
+        '[' + caller + '] ' + message;
       // this._log.push(formatted);
       if (this._log_to_stdout) console.log(formatted);
       if (this._log_to_file) this._stream.write(formatted + '\n');
