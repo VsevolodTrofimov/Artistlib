@@ -5,7 +5,7 @@ const logging = require('./logging');
 const curry = require('./curry');
 // dependency init
 const log_instance = logging();
-const log = curry(log_instance, log_instance.log)('DatabaseWrapper');
+const log = curry.call(log_instance, log_instance.log)('DatabaseWrapper');
 
 var databasewrapper = (() => {
 

@@ -1,4 +1,6 @@
-function curry(context, func) {
+function curry(func) {
+  let context = this;
+
   function next(given, args) {
     given = given.concat(args);
 
