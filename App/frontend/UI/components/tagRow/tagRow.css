@@ -1,0 +1,7 @@
+.tagRow:last-child {
+  margin-bottom: -6px;
+}
+
+.tagRow > button {
+  margin-bottom: var(--margin-s);
+}
