@@ -12,7 +12,7 @@ const websocket_handler = require('./modules/websocket');
 const database = require('./modules/databasewrapper');
 // dependency init
 const app = express();
-const log = curry(log_instance, log_instance.log)('main app');
+const log = curry.call(log_instance, log_instance.log)('main app');
 const db = database('db.json', 0.5);
 // ===
 log('Starting artist-library...');
