@@ -4,13 +4,17 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const ROOT_PATH = path.resolve(__dirname, '../')
-const SRC_PATH = path.resolve(ROOT_PATH, 'frontend/src')
-const TEMPLATE_PATH = path.resolve(SRC_PATH, '../index.html')
+
+const COMMON_PATH = path.resolve(ROOT_PATH, 'common')
+const SRC_PATH = path.resolve(ROOT_PATH, 'frontend')
+
+const ENTRY_PATH = path.resolve(SRC_PATH, 'UI/index.js')
+const TEMPLATE_PATH = path.resolve(SRC_PATH, 'UI/index.html')
 
 const DIST_PATH = path.resolve(ROOT_PATH, 'dist')
 
 module.exports = {
-  entry: SRC_PATH,
+  entry: ENTRY_PATH,
   output: {
     path: DIST_PATH,
     filename: 'app.js'
@@ -21,7 +25,6 @@ module.exports = {
       {
         test: /\.js$/,
         include: [SRC_PATH],
-        exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader',
         query: {
           presets: [
@@ -29,9 +32,16 @@ module.exports = {
           ],
           plugins: [
             [
-              'babel-plugin-root-import', {
-                'rootPathSuffix': SRC_PATH
-              }
+              'babel-plugin-root-import',
+              [
+                {
+                  "rootPathPrefix": "~",
+                  "rootPathSuffix": SRC_PATH
+                }, {
+                  "rootPathPrefix": "@",
+                  "rootPathSuffix": COMMON_PATH
+                }
+              ]
             ]
           ]
         }
@@ -42,11 +52,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin('styles.css'),
-    new HtmlWebpackPlugin({
-      title: 'artist-library',
-      template: TEMPLATE_PATH,
-      filename: 'index.html',
-    })
+    new ExtractTextPlugin('app.css'),
+    new HtmlWebpackPlugin({title: 'artist-library', template: TEMPLATE_PATH, filename: 'index.html'})
   ]
 }
