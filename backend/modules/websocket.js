@@ -6,7 +6,7 @@ const ws = require('nodejs-websocket');
 const curry = require('./curry');
 // dependency init
 const log_instance = logging();
-const log = curry(log_instance, log_instance.log)('WebsocketRequestHandler');
+const log = curry.call(log_instance, log_instance.log)('WebsocketRequestHandler');
 // Google Sign-In client ID & init
 const CLIENT_ID = '525667590047-h95h4ir4208t74l1b8vnksmll2mhmtrq.apps.googleusercontent.com';
 const auth = new gauth;
