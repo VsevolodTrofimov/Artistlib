@@ -20,6 +20,9 @@ module.exports = {
     filename: 'app.js'
   },
   devtool: 'source-map',
+  devServer: {
+    port: 80
+  },
   module: {
     rules: [
       {
@@ -48,6 +51,23 @@ module.exports = {
       }, {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({use: 'css-loader'})
+      }, {
+        test: /\.svg$/,
+        loaders: [
+          {
+            loader: 'babel-loader',
+            query: {
+              presets: ['react', 'es2015']
+            }
+          }, {
+            loader: 'react-svg-loader',
+            query: {
+              svgo: {
+                floatPrecision: 2
+              }
+            }
+          }
+        ]
       }
     ]
   },

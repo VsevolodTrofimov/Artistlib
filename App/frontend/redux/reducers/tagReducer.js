@@ -3,28 +3,39 @@ import tagRemove from '@/actionFactories/tagRemove'
 
 import preciseObjectAssign from '~/utility/preciseObjectAssign'
 
+function getArtistById(artists, id) {
+    console.log(id, artists)
+  for(let i = 0; i < artists.length; i++) {
+    if(artists[i].id === id) return {
+      key: i,
+      artist: artists[i]
+    }
+  }
+
+  console.log('not found')
+}
+
 function tagReducer(state, action) {
+  let newState = state
+  let key = 0
+
   switch (action.type) {
     case tagAdd.type:
-      var newState = preciseObjectAssign(state, ['artists', action.artistId, 'tags'])
+      key = getArtistById(state.artists, action.artistId).key
+      newState = preciseObjectAssign(state, ['artists', key, 'tags'])
 
-      console.log('IS:', state)
-      console.log('NS:', newState)
-      console.log(newState == state)
-      console.log(newState.artists == state.artists)
-
-      newState.artists[action.artistId].tags[action.tagType] =
-        [... state.artists[action.artistId].tags[action.tagType], action.tagValue]
+      console.log(key, newState.artists[key])
+      newState.artists[key].tags[action.tagType] =
+        [... state.artists[key].tags[action.tagType], action.tagValue]
 
       return newState
 
 
     case tagRemove.type:
-      var newState = preciseObjectAssign(
-        state,
-        ['artists', action.artistId, 'tags', action.tagType])
+      key = getArtistById(state.artists, action.artistId).key
+      newState = preciseObjectAssign(state, ['artists', key, 'tags', action.tagType])
 
-      var tags = newState.artists[action.artistId].tags[action.tagType]
+      let tags = newState.artists[key].tags[action.tagType]
 
       tags.splice(tags.indexOf(action.tagValue), 1)
 

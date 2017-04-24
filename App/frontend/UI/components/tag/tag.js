@@ -1,5 +1,7 @@
 import React from 'react'
 
+import CloseIcon from '~/static/icons/close.svg'
+
 import './tag.css'
 
 export default class Tag extends React.Component {
@@ -10,7 +12,7 @@ export default class Tag extends React.Component {
           {this.props.name}
         </div>
         <button className='tag__delete' onClick={this.props.tagRemover}>
-          x
+          <CloseIcon />
         </button>
       </div>
     )

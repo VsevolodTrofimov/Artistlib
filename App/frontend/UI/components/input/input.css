@@ -1,0 +1,14 @@
+.input input {
+  border: 0;
+  border-bottom: 2px solid transparent;
+
+  padding: var(--margin-s);
+
+  font-size: var(--font-m);
+  transition: 0.375s ease-in-out;
+}
+
+.input input:focus {
+  outline: 0;
+  border-bottom-color: var(--accent);
+}

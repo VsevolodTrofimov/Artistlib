@@ -7,6 +7,7 @@
   --font-m: 20px;
   --white: #ffffff;
   --gray: #ebebeb;
+  --accent: #3E505B;
   --black: #2D2D34;
   --column-width: calc((910px - var(--margin-m) * 2) / 3);
 }
@@ -50,4 +51,10 @@ body {
 .items-center {
   justify-content: center;
   align-items: center;
+}
+
+svg {
+  fill: var(--black);
+  width: var(--font-m);
+  height: var(--font-m);
 }

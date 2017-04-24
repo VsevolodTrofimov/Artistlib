@@ -1,20 +1,15 @@
 import React from 'react'
 
 import Artist from '~/UI/components/artist/artist'
+import FilterContainer from './filter/FilterContainer'
 
-export default class artistList extends React.Component {
-  componentWillReceiveProps() {
-    console.log("YEEE PROPS")
-  }
-  componentWillUpdate() {
-    console.log('yEEE UPD')
-  }
+export default class ArtistList extends React.Component {
   render() {
-    var artistList = this.props.artists.map((artist, idx) => {
+    let artistList = this.props.artists.map((artist, idx) => {
       return (
         <Artist
-          idx  = {idx}
-          key  = {idx}
+          idx  = {artist.id}
+          key  = {artist.id}
           name = {artist.name}
           tags = {artist.tags}
           tagAdder = {this.props.tagAdder}
@@ -24,6 +19,7 @@ export default class artistList extends React.Component {
 
     return (
       <div>
+      <FilterContainer />
         {artistList}
       </div>
     )

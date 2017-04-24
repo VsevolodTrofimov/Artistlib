@@ -1,4 +1,4 @@
-var gradients = [
+let gradients = [
     {
         "name": "Sea Blue",
         "colors": ["#2b5876", "#4e4376"]

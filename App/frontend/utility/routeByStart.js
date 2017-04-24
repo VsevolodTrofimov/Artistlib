@@ -7,7 +7,7 @@
  * @return {Any} your route[key] return
  */
 export default function routeByStart(item, routes, args = []) {
-  for (var key in routes) {
+  for (let key in routes) {
     if (item.startsWith(key)) {
       return routes[key](...args)
     }

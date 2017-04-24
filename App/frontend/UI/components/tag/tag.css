@@ -9,4 +9,15 @@
 
 .tag__delete {
   margin-left: var(--margin-s);
+  background: transparent;
+  padding: 0;
+}
+
+.tag__delete svg {
+  opacity: .3;
+}
+
+.tag__delete, .tag__delete svg {
+    width: var(--font-m);
+    height: var(--font-m);
 }

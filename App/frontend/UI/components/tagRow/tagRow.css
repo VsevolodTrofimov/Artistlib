@@ -5,3 +5,7 @@
 .tagRow > button {
   margin-bottom: var(--margin-s);
 }
+
+.tagRow input {
+  margin: 0 var(--margin-s) var(--margin-s) 0;
+}
