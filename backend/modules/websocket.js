@@ -44,7 +44,7 @@ var websocket = (() => {
           try {
             ev = JSON.parse(data);
           } catch (e) {
-            log('Incompatible event struct format.');
+            log('Incompatible action structure.');
             return;
           }
           if (ev.type !== 'auth')
@@ -75,7 +75,7 @@ var websocket = (() => {
         var handler = this.handlers[ev.type];
         handler(ev, userid);
       } catch (e) {
-        log('Error while routing an event: ' + e.toString());
+        log('Error while routing an action: ' + e.toString());
       }
     }
 

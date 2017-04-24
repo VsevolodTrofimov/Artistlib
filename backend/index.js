@@ -9,11 +9,15 @@ const log_instance = logging({
   'file': __dirname + '/logs/run-' + dateformat(new Date(), 'mm-dd-yyyy_HH-MM') + '.log'
 });
 const websocket_handler = require('./modules/websocket');
-const database = require('./modules/databasewrapper');
+const database = require('./modules/databaseWrapper');
+const db = database('db.json', 0.5);
+const handlers = require('./modules/handlers');
+// action structs
+// import tagAdd from '../App/common/actionFactories/tagAdd';
+
 // dependency init
 const app = express();
 const log = curry.call(log_instance, log_instance.log)('main app');
-const db = database('db.json', 0.5);
 // ===
 log('Starting artist-library...');
 app.use(express.static('test'));
@@ -30,8 +34,19 @@ ws.handlers.authtest = (ev, userid) => {
   log(ev.data.toString());
 }
 
+ws.handlers['TAG_ADD'] = handlers.tagAddHandler;
+
 db.forceUpdate().then(() => {
-  db.getRoot()['artists'] = ['ricegnat', 'ke-ta', 'lpip'];
+  db.getRoot()['artists'] = {
+    'ricegnat': {
+      'tags': []
+    }
+  };
+  db.getRoot()['users'] = {
+    '115422809396962217512': {
+      'ricegnat': ['rough']
+    }
+  }
 });
 
 var safe_exit = () => {
