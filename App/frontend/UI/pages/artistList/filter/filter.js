@@ -41,10 +41,11 @@ export default class Filter extends React.Component {
             ref={(input) => {this.excludedTagsInput = input}}
           />
         </div>
-
-        <button onClick= {this.filterSet}>
-          Filter
-        </button>
+        <div className='row'>
+          <button onClick= {this.filterSet}>
+            Filter
+          </button>
+        </div>
       </div>
     )
   }

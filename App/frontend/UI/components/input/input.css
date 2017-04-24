@@ -8,6 +8,8 @@
   transition: 0.375s ease-in-out;
 
   background: transparent;
+
+  width: 100%;
 }
 
 .input input:focus {

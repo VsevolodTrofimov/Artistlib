@@ -5,9 +5,9 @@ const defaultState = {
     excludedTags: []
   },
   lastId: 0,
-  authToken: undefined,
+  authToken: true,
   artists: [{
-    id: 88,
+    id: 7,
     name: 'ke-ta',
     tags: {
       global: new Set(['gg', 'lalal']),
