@@ -22,11 +22,9 @@ function tagReducer(state, action) {
   switch (action.type) {
     case tagAdd.type:
       key = getArtistById(state.artists, action.artistId).key
-      newState = preciseObjectAssign(state, ['artists', key, 'tags'])
+      newState = preciseObjectAssign(state, ['artists', key, 'tags', action.tagType])
 
-      console.log(key, newState.artists[key])
-      newState.artists[key].tags[action.tagType] =
-        [... state.artists[key].tags[action.tagType], action.tagValue]
+      newState.artists[key].tags[action.tagType].add(action.tagValue)
 
       return newState
 
@@ -35,12 +33,10 @@ function tagReducer(state, action) {
       key = getArtistById(state.artists, action.artistId).key
       newState = preciseObjectAssign(state, ['artists', key, 'tags', action.tagType])
 
-      let tags = newState.artists[key].tags[action.tagType]
-
-      tags.splice(tags.indexOf(action.tagValue), 1)
+      newState.artists[key].tags[action.tagType].delete(action.tagValue)
 
       return newState
-
+      
 
     default:
       return state

@@ -22,8 +22,12 @@ export default function preciseObjectAssign (source, path) {
 
     if(proto[path[i]] instanceof Array) {
       clone[path[i]] = [... proto[path[i]]]
-    } else {
+    } else if (proto[path[i]] instanceof Set) {
+      clone[path[i]] = new Set(proto[path[i]].values())
+    } else if (proto[path[i]] instanceof Object) {
       clone[path[i]] = Object.assign({}, proto[path[i]])
+    } else {
+      throw new TypeError('Unsupported type', proto[path[i]])
     }
   }
 

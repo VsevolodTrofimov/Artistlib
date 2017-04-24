@@ -11,7 +11,7 @@ function getVisibleArtists(artists, includedTags, excludedTags) {
     let found = 0
 
     includedTags.forEach(function(tag) {
-      if(tags.indexOf(tag) + 1) found++
+      if(tags.has(tag)) found++
     })
 
     return found === includedTags.length
@@ -20,7 +20,7 @@ function getVisibleArtists(artists, includedTags, excludedTags) {
   function checkForExcluded(tags) {
     let isOk = true
     excludedTags.forEach(function(tag) {
-      if(tags.indexOf(tag) + 1) isOk = false
+      if(tags.has(tag)) isOk = false
     })
 
     return isOk

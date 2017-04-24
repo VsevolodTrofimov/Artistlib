@@ -7,25 +7,11 @@ const defaultState = {
   lastId: 0,
   authToken: undefined,
   artists: [{
-    name: 'mvv',
-    id: 0,
-    tags: {
-      global: ['a', 'solo'],
-      personal: ['10/10']
-    }
-  }, {
-    id: 1,
-    name: 'GAE (into rain)',
-    tags: {
-      global: ['personal_style'],
-      personal: []
-    }
-  }, {
     id: 88,
     name: 'ke-ta',
     tags: {
-      global: ['b'],
-      personal: []
+      global: new Set(['gg', 'lalal']),
+      personal: new Set(['top', 'hope'])
     }
   }]
 }

@@ -18,13 +18,13 @@ export default class Artist extends React.Component {
         <div className='column'>
           <TagRow
             type = 'global'
-            tags = {this.props.tags.global}
+            tags = {[...this.props.tags.global.values()]}
             tagAdder = {tagAdder}
             tagRemover = {tagRemover} />
 
           <TagRow
             type = 'personal'
-            tags = {this.props.tags.personal}
+            tags = {[...this.props.tags.personal.values()]}
             tagAdder = {tagAdder}
             tagRemover = {tagRemover} />
         </div>

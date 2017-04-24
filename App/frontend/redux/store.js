@@ -10,7 +10,7 @@ const socket = new AppSocket();
 console.log(socket.send)
 
 const actionSender = store => next => action => {
-  let res = routeByStart(action.type, {
+  routeByStart(action.type, {
    'USER': socket.send,
    'TAG': socket.send
  }, [action], socket)

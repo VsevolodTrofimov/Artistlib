@@ -6,6 +6,8 @@
 
   font-size: var(--font-m);
   transition: 0.375s ease-in-out;
+
+  background: transparent;
 }
 
 .input input:focus {
