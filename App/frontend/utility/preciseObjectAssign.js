@@ -6,10 +6,10 @@
  * @return {Object} part of source, where only listed parts are coped
  */
 export default function preciseObjectAssign (source, path) {
-  var newObj = Object.assign({}, source)
+  let newObj = Object.assign({}, source)
 
-  var proto = source
-  var clone = newObj
+  let proto = source
+  let clone = newObj
 
   for(let i = 0; i < path.length; i++) {
     proto = source

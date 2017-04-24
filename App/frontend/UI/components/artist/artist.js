@@ -9,8 +9,8 @@ import './artist.css'
 
 export default class Artist extends React.Component {
   render() {
-    var tagAdder = curry(this.props.tagAdder)(this.props.idx)
-    var tagRemover = curry(this.props.tagRemover)(this.props.idx)
+    let tagAdder = curry(this.props.tagAdder)(this.props.idx)
+    let tagRemover = curry(this.props.tagRemover)(this.props.idx)
 
     return (
       <div className='row artist'>

@@ -1,5 +1,8 @@
 import React from 'react'
+
 import Tag from '~/UI/components/tag/tag'
+import Input from '~/UI/components/input/input'
+
 import './tagRow.css'
 
 export default class TagRow extends React.Component {
@@ -15,9 +18,8 @@ export default class TagRow extends React.Component {
     return (
       <div className='tagRow row'>
         {tagList}
-        <button onClick = {() => this.props.tagAdder(type, 'lalala')}>
-          +
-        </button>
+        <Input placeholder = '+' onKeyPress = {{
+          'Enter': {cb: this.props.tagAdder(type), clear: true}}} />
       </div>
     )
   }
