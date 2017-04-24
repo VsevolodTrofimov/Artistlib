@@ -4,7 +4,7 @@ curry = require('./curry');
 logging = require('./logging');
 
 const log_instance = logging();
-db = databaseWrapper();
+const db = databaseWrapper();
 
 module.exports.tagAddHandler = (ev, userid) => {
   let log = curry.call(log_instance, log_instance.log)('tagAddHandler');
