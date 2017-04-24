@@ -27,11 +27,11 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        include: [SRC_PATH],
         loader: 'babel-loader',
+        exclude: /(node_modules|bower_components)/,
         query: {
           presets: [
-            'react', 'es2015'
+            'es2015', 'react'
           ],
           plugins: [
             [

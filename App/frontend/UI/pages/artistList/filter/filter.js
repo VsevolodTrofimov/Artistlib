@@ -22,21 +22,25 @@ export default class Filter extends React.Component {
   render() {
     return (
       <div className='row filter'>
-        <AddIcon/>
-        <Input
-          value = {this.props.includedTags}
-          placeholder = 'Included tags'
-          onKeyPress = {{'Enter': {cb: this.filterSet}}}
-          ref={(input) => {this.includedTagsInput = input}}
-        />
+        <div className='row'>
+          <AddIcon/>
+          <Input
+            value = {this.props.includedTags}
+            placeholder = 'Included tags'
+            onKeyPress = {{'Enter': {cb: this.filterSet}}}
+            ref={(input) => {this.includedTagsInput = input}}
+          />
+        </div>
 
-        <RemoveIcon/>
-        <Input
-          value = {this.props.excludedTags}
-          placeholder='Excluded tags'
-          onKeyPress = {{'Enter': {cb: this.filterSet}}}
-          ref={(input) => {this.excludedTagsInput = input}}
-        />
+        <div className='row'>
+          <RemoveIcon/>
+          <Input
+            value = {this.props.excludedTags}
+            placeholder='Excluded tags'
+            onKeyPress = {{'Enter': {cb: this.filterSet}}}
+            ref={(input) => {this.excludedTagsInput = input}}
+          />
+        </div>
 
         <button onClick= {this.filterSet}>
           Filter

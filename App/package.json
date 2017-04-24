@@ -23,7 +23,6 @@
     "extract-text-webpack-plugin": "^2.1.0",
     "html-webpack-plugin": "^2.28.0",
     "react-svg-loader": "^1.1.1",
-    "svg-react-loader": "^0.3.7",
     "webpack": "^2.4.1",
     "webpack-dev-server": "^2.4.2",
     "webpack-merge": "^4.1.0"
