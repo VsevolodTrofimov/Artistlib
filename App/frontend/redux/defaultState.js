@@ -4,6 +4,7 @@ const defaultState = {
     includedTags: [],
     excludedTags: []
   },
+  lastId: 0,
   authToken: undefined,
   artists: [{
     name: 'mvv',

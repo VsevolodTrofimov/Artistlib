@@ -6,10 +6,10 @@
  * @param  {Any[]} args args to pass to routes[key]
  * @return {Any} your route[key] return
  */
-export default function routeByStart(item, routes, args = []) {
+export default function routeByStart(item, routes, args = [], context = this) {
   for (let key in routes) {
     if (item.startsWith(key)) {
-      return routes[key](...args)
+      return routes[key].call(context, ...args)
     }
   }
 }
