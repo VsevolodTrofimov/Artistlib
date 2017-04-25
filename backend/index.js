@@ -20,7 +20,7 @@ const app = express();
 const log = curry.call(log_instance, log_instance.log)('main app');
 // ===
 log('Starting artist-library...');
-app.use(express.static('../App/dist'));
+app.use(express.static('test'));
 app.listen(80, /*process.env.PORT,*/ () => {
   log('Web-server is in listen mode.')
 });
@@ -38,7 +38,7 @@ ws.handlers['TAG_ADD'] = handlers.tagAddHandler;
 
 db.forceUpdate().then(() => {
   db.getRoot()['artists'] = {
-    'ke-ta': {
+    'ricegnat': {
       'tags': []
     }
   };

@@ -3,7 +3,7 @@ const type = 'USER_AUTH'
 function factory(event) {
   return {
     type,
-    token: event.tokenObj.id_token
+    authToken: event.tokenObj.id_token
   }
 }
 

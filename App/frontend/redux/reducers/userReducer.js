@@ -5,7 +5,7 @@ function userReducer(state, action) {
     case userAuth.type:
       let newState = Object.assign({}, state)
 
-      newState.authToken = action.token
+      newState.authToken = action.authToken
       return newState
     default:
       return state

@@ -5,7 +5,7 @@ const defaultState = {
     excludedTags: []
   },
   lastId: 0,
-  authToken: undefined,
+  authToken: true,
   artists: [{
     id: 7,
     name: 'ke-ta',

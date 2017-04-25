@@ -19,7 +19,7 @@ export default class ArtistList extends React.Component {
 
     return (
       <div>
-        <FilterContainer />
+      <FilterContainer />
         {artistList}
       </div>
     )

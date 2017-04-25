@@ -47,7 +47,7 @@ var websocket = (() => {
             log('Incompatible action structure.');
             return;
           }
-          if (ev.type !== 'USER_AUTH')
+          if (ev.type !== 'auth')
             self.handle(ev, userid);
           else
             auth(ev);
