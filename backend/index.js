@@ -12,7 +12,9 @@ const websocket_handler = require('./modules/websocket');
 const database = require('./modules/databaseWrapper');
 const db = database('db.json', 0.5);
 const handlers = require('./modules/handlers');
-// action structs
+const dataSkel = require('./modules/dataSkel');
+
+// actionFactory imports
 // import tagAdd from '../App/common/actionFactories/tagAdd';
 
 // dependency init
@@ -37,15 +39,11 @@ ws.handlers.authtest = (ev, userid) => {
 ws.handlers['TAG_ADD'] = handlers.tagAddHandler;
 
 db.forceUpdate().then(() => {
-  db.getRoot()['artists'] = {
-    'ricegnat': {
-      'tags': []
-    }
-  };
-  db.getRoot()['users'] = {
-    '115422809396962217512': {
-      'ricegnat': ['rough']
-    }
+  let ref = db.getRoot();
+  if ( ! ref.hasOwnProperty('artists')) {
+    log('Initializing default database state...');
+    Object.assign(ref, dataSkel.defaultDatabaseState());
+    Object.assign(ref.artists, dataSkel.artistInit('ricegnat'));
   }
 });
 

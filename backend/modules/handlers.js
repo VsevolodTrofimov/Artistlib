@@ -15,11 +15,13 @@ module.exports.tagAddHandler = (ev, userid) => {
   }
   let artist = ev.artistId.toString();
   let user = userid.toString();
+
   try {
     tags = (ev.tagType === 'global') ? db.getRoot().artists[artist].tags
-                                     : db.getRoot().users[user][artist];
+                                     : db.getRoot().artists[artist].usertags[user];
   } catch (e) {
     log('No such artist: \'' + artist + '\'.');
+    return;
   }
   if (tags.indexOf(ev.tagValue) !== -1) {
     log('Tag already exists, aborting.');
