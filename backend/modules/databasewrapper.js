@@ -7,7 +7,7 @@ const curry = require('./curry');
 const log_instance = logging();
 const log = curry.call(log_instance, log_instance.log)('DatabaseWrapper');
 
-var databasewrapper = (() => {
+var databaseWrapper = (() => {
 
   class DatabaseWrapper {
     constructor(filename, autosave) {
@@ -73,6 +73,6 @@ let db;
 
 module.exports = (filename, autosave) => {
   if(!db)
-    db = new databasewrapper(filename, autosave);
+    db = new databaseWrapper(filename, autosave);
   return db;
 };

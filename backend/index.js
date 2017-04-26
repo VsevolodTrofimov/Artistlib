@@ -13,6 +13,7 @@ const database = require('./modules/databaseWrapper');
 const db = database('db.json', 0.5);
 const handlers = require('./modules/handlers');
 const dataSkel = require('./modules/dataSkel');
+const idGenerator = require('./modules/idGenerator');
 
 // actionFactory imports
 // import tagAdd from '../App/common/actionFactories/tagAdd';
@@ -20,6 +21,8 @@ const dataSkel = require('./modules/dataSkel');
 // dependency init
 const app = express();
 const log = curry.call(log_instance, log_instance.log)('main app');
+const id = idGenerator();
+
 // ===
 log('Starting artist-library...');
 app.use(express.static('test'));
@@ -43,8 +46,9 @@ db.forceUpdate().then(() => {
   if ( ! ref.hasOwnProperty('artists')) {
     log('Initializing default database state...');
     Object.assign(ref, dataSkel.defaultDatabaseState());
-    Object.assign(ref.artists, dataSkel.artistInit('ricegnat'));
+    Object.assign(ref.artists, dataSkel.artistInit('ricegnat', 'dunno'));
   }
+  id.setOffset(ref.id_offset);
 });
 
 var safe_exit = () => {
@@ -54,6 +58,12 @@ var safe_exit = () => {
     process.exit(0);
   });
 };
+
+var increment = () => {
+  db.getRoot().id_offset += 1;
+}
+
+id.addIncrementListener(increment);
 
 process.on('SIGINT', safe_exit);
 process.on('SIGTERM', safe_exit);
