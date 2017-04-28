@@ -21,7 +21,7 @@ export default class Filter extends React.Component {
 
   render() {
     return (
-      <div className='row filter'>
+      <div className='row inputRow filter'>
         <div className='row'>
           <AddIcon/>
           <Input

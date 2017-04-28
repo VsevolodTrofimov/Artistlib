@@ -10,7 +10,7 @@ function tagRemoveFactory(artistId, tagType, tagValue) {
 }
 
 
-export default {
+module.exports = {
   type,
   factory: tagRemoveFactory
 }

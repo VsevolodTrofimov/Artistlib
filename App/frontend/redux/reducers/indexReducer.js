@@ -5,16 +5,18 @@ import authReducer from './userReducer'
 import artistReducer from './artistReducer'
 import filterReducer from './filterReducer'
 import tagReducer from './tagReducer'
+import menuReducer from './menuReducer'
 
 function indexReducer(state = defaultState, action) {
    let res = routeByStart(action.type, {
     'USER': authReducer,
     'ARTIST': artistReducer,
     'FILTER': filterReducer,
-    'TAG': tagReducer
+    'TAG': tagReducer,
+    'MENU': menuReducer
   }, [state, action])
 
-  return res || state
+  return res ? res : state
 }
 
 export default indexReducer

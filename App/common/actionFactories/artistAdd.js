@@ -1,15 +1,16 @@
 const type = 'ARTIST_ADD'
 
-function artistAddFactory(name, url) {
+function artistAddFactory(name, url, id) {
   return {
     type,
     name,
-    url
+    url,
+    id
   }
 }
 
 
-export default {
+module.exports = {
   type,
   factory: artistAddFactory
 }

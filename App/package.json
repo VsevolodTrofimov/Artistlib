@@ -29,6 +29,7 @@
   },
   "scripts": {
     "start": "node_modules/.bin/webpack-dev-server",
-    "build": "webpack --p"
+    "build": "webpack --p",
+    "serve": "serve"
   }
 }

@@ -13,7 +13,7 @@ function filterSetFactory(includedTags, excludedTags) {
 }
 
 
-export default {
+module.exports = {
   type,
   factory: filterSetFactory
 }

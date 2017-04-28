@@ -2,12 +2,12 @@
   margin-bottom: var(--margin-m);
 }
 
-.filter .input {
+.inputRow .input {
   margin-right: var(--margin-m);
   margin-top: 2px;
 }
 
-.filter button {
+.inputRow button {
   font-weight: 600;
   background: transparent;
   font-size: var(--font-m);
@@ -15,16 +15,16 @@
   padding: var(--margin-s) var(--margin-m);
 }
 
-.filter svg, {
+.inputRow svg, {
   margin-bottom: var(--margin-s);
 }
 
 @media (max-width: 600px) {
-  .filter>div {
+  .inputRow>div {
     margin-top: var(--margin-m);
     width: 100%;
   }
-  .filter button, .filter .input {
+  .inputRow button, .inputRow .input {
     margin: 0;
     flex: 1;
   }

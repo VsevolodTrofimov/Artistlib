@@ -1,7 +1,11 @@
 import React from 'react'
 
 import Artist from '~/UI/components/artist/artist'
-import FilterContainer from './filter/FilterContainer'
+
+import MenuContainer from '~/UI/components/menu/MenuContainer.js'
+import ArtistAddContainer from '~/UI/components/artistAdd/artistAddContainer.js'
+
+import FilterContainer from './filter/filterContainer'
 
 export default class ArtistList extends React.Component {
   render() {
@@ -19,6 +23,9 @@ export default class ArtistList extends React.Component {
 
     return (
       <div>
+      <MenuContainer>
+        <ArtistAddContainer />
+      </MenuContainer>
       <FilterContainer />
         {artistList}
       </div>

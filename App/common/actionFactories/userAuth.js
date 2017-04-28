@@ -7,7 +7,7 @@ function factory(event) {
   }
 }
 
-export default {
+module.exports = {
   type,
   factory
 }

@@ -9,7 +9,7 @@ function appInitFactory(artists, lastId) {
 }
 
 
-export default {
+module.exports = {
   type,
   factory: appInitFactory
 }
