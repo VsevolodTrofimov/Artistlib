@@ -1,10 +1,9 @@
 const type = 'APP_INIT'
 
-function appInitFactory(artists, lastId) {
+function appInitFactory(artists) {
   return {
     type,
-    artists,
-    lastId
+    artists
   }
 }
 

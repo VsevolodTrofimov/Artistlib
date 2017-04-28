@@ -10,8 +10,6 @@ function filterReducer(state, action) {
         excludedTags: action.excludedTags
       }
 
-      console.log(newState == state, newState.filters == state.filters)
-
       return newState
 
     default:

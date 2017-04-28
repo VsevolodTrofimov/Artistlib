@@ -13,6 +13,7 @@
   font-size: var(--font-m);
   border: 2px solid var(--black);
   padding: var(--margin-s) var(--margin-m);
+  height: 40px;
 }
 
 .inputRow svg, {
