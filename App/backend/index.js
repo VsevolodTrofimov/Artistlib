@@ -14,6 +14,7 @@ const db = database('db.json', 0.5);
 const handlers = require('./modules/handlers');
 const dataSkel = require('./modules/dataSkel');
 const idGenerator = require('./modules/idGenerator');
+const factories = require('./modules/factoryBulkRequire');
 
 // actionFactory imports
 // import tagAdd from '../App/common/actionFactories/tagAdd';
@@ -39,16 +40,19 @@ ws.handlers.authtest = (ev, userid) => {
   log(ev.data.toString());
 }
 
-ws.handlers['TAG_ADD'] = handlers.tagAddHandler;
+ws.handlers[factories.tagAdd.type] = handlers.tagAddRemoveHandler;
+ws.handlers[factories.tagRemove.type] = handlers.tagAddRemoveHandler;
+ws.handlers[factories.artistRequest.type] = handlers.artistAddRemoveHandler;
+ws.handlers[factories.artistRemove.type] = handlers.artistAddRemoveHandler;
 
 db.forceUpdate().then(() => {
-  let ref = db.getRoot();
-  if ( ! ref.hasOwnProperty('artists')) {
+  let root = db.getRoot();
+  if ( ! root.hasOwnProperty('artists')) {
     log('Initializing default database state...');
-    Object.assign(ref, dataSkel.defaultDatabaseState());
-    Object.assign(ref.artists, dataSkel.artistInit('ricegnat', 'dunno'));
+    Object.assign(root, dataSkel.defaultDatabaseState());
+    Object.assign(root.artists, dataSkel.artistInit('ricegnat', 'dunno'));
   }
-  id.setOffset(ref.id_offset);
+  id.setOffset(root.id_offset);
 });
 
 var safe_exit = () => {

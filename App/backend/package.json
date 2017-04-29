@@ -4,7 +4,7 @@
   "description": "Backend for artist-library, a tool for organizing a list of your favourite Danbooru artists.",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js"
+    "start": "node index.js"
   },
   "author": "StargazingTux aka brotheroftux",
   "license": "MIT",
