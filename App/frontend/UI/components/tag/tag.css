@@ -1,5 +1,5 @@
 .tag {
-  background: var(--gray);
+  border-bottom: var(--border);
   color: var(--black);
   padding: var(--margin-s);
   margin: 0 var(--margin-s) var(--margin-s) 0;
@@ -14,7 +14,7 @@
 }
 
 .tag__delete svg {
-  opacity: .3;
+  transform: scale(0.8);
 }
 
 .tag__delete, .tag__delete svg {

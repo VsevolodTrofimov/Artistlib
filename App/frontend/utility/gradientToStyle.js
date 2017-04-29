@@ -15,10 +15,12 @@ export default function gradientToStyle(idx) {
 
   styles.background += ')'
 
-  styles.boxShadow = '0 12px 64px 0 '
-                     + hexToRGBA(gradients[idx].colors[0], 0.41) + ", "
-                     + '0 6px 36px 0 '
-                     + hexToRGBA(gradients[idx].colors.slice(-1)[0], 0.31)
+  styles.webkitBackgroundClip = 'text'
+
+  // styles.boxShadow = '0 12px 64px 0 '
+  //                    + hexToRGBA(gradients[idx].colors[0], 0.41) + ", "
+  //                    + '0 6px 36px 0 '
+  //                    + hexToRGBA(gradients[idx].colors.slice(-1)[0], 0.31)
 
   return styles
 }

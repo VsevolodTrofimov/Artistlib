@@ -27,7 +27,9 @@ export default class ArtistList extends React.Component {
         <ArtistAddContainer />
       </MenuContainer>
       <FilterContainer />
+      <div className='artistList'>
         {artistList}
+      </div>
       </div>
     )
   }

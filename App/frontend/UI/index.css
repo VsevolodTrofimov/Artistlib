@@ -10,6 +10,8 @@
   --accent: #3E505B;
   --black: #2D2D34;
   --column-width: calc((910px - var(--margin-m) * 2) / 3);
+  --border-width: 2px;
+  --border: var(--border-width) solid var(--black);
 }
 
 /* reset */

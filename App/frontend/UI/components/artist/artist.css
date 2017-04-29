@@ -1,20 +1,27 @@
 .artist {
-  margin-bottom: var(--margin-m);
   align-items: center;
+  border: var(--border);
+  border-top: 0;
+}
+
+.artist:first-child {
+  border-top: var(--border);
 }
 
 .artist__card {
-  border-radius: 2px;
-  width: var(--column-width);
   margin-right: var(--margin-m);
+  padding: 0 var(--margin-m);
   height: 112px;
+  border-right: var(--border);
+  -webkit-background-clip: text;
 }
 
 .artist__card__name {
-  font-weight: 200;
+  font-weight: 700;
   font-size: var(--font-xl);
   color: var(--white);
   margin: 0;
+  -webkit-text-fill-color: transparent;
 }
 
 @media (max-width: 910px) {

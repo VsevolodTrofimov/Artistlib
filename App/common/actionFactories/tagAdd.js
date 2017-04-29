@@ -9,6 +9,8 @@ function tagAddFactory(artistId, tagType, tagValue) {
     tagValue = tagValue.replace(' ', '_')
   }
 
+  tagValue = tagValue.toLowerCase()
+
   return {
     type,
     artistId,
