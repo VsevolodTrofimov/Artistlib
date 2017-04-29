@@ -1,4 +1,4 @@
-const type = 'ARTIST_REQEUST'
+const type = 'ARTIST_REQUEST'
 
 function artistRequestFactory(name, url) {
   return {
