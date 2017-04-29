@@ -4,6 +4,7 @@ const gauth = require('google-auth-library');
 const logging = require('./logging');
 const ws = require('nodejs-websocket');
 const curry = require('./curry');
+const buildArtists = require('./buildArtists');
 const authFactory = require('./factoryBulkRequire').userAuth;
 // dependency init
 const log_instance = logging();
@@ -32,6 +33,7 @@ class WebsocketRequestHandler {
           if(!e) {
             userid = login.getPayload()['sub'];
             log('User authentication complete.');
+            connection.sendText(JSON.stringify(buildArtists(userid)));
           } else {
             log('Authentication failed: ' + e.toString());
           }

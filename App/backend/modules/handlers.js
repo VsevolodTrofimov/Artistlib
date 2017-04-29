@@ -23,7 +23,7 @@ module.exports.tagAddRemoveHandler = (ev, userid) => {
     return;
   } else if (ev.tagType === 'personal' &&
   typeof root.artists[artist].usertags[user] === 'undefined') {
-    log(`Given user has no personal tags for artist '${artist}'.`);
+    log(`Given user has no personal tags for artist '${root.artists[artist].name}'.`);
     Object.assign(root.artists[artist].usertags,
       dataSkel.userTagsInit(user));
   }
@@ -39,7 +39,7 @@ module.exports.tagAddRemoveHandler = (ev, userid) => {
         tags.push(tag);
         log(`Tag '${tag}' added` +
            `${((ev.tagType === 'personal') ? ' to personal tags' : '')}` +
-            ` for artist '${artist}'.`);
+            ` for artist '${root.artists[artist].name}'.`);
       }
       break;
 
@@ -50,7 +50,7 @@ module.exports.tagAddRemoveHandler = (ev, userid) => {
         return;
       }
       tags.splice(index, 1);
-      log(`Removing tag '${ev.tagValue.toString()}' from artist '${artist}'.`);
+      log(`Removing tag '${ev.tagValue.toString()}' from artist '${root.artists[artist].name}'.`);
       break;
 
     default:
@@ -73,18 +73,21 @@ module.exports.artistAddRemoveHandler = (ev, userid) => {
         log(`Artist '${artist}' already exists, aborting.`);
         return;
       }
-      Object.assign(root.artists, dataSkel.artistInit(artist, url));
+      let artistSkel = dataSkel.artistInit(artist, url);
+      let id = parseInt(Object.keys(artistSkel)[0]);
+      Object.assign(root.artists, artistSkel);
       log(`Added artist '${artist}'.`);
-      return factories.artistAdd.factory(artist, url, root.artists[artist].id);
+      return factories.artistAdd.factory(root.artists[id].name, url, id);
       break;
 
     case factories.artistRemove.type:
       if (typeof root.artists[artist] === 'undefined') {
-        log(`Artist '${artist}' doesn't exist, aborting.`);
+        log(`Artist with id '${artist}' doesn't exist, aborting.`);
         return;
       }
+      let name = root.artists[artist].name;
       delete root.artists[artist];
-      log(`Artist ${artist} removed.`);
+      log(`Artist ${name} removed.`);
       break;
 
     default:

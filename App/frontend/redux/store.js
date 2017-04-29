@@ -13,7 +13,7 @@ const actionSender = store => next => action => {
   routeByStart(action.type, {
    'USER': socket.send,
    'TAG': socket.send,
-   'ARTIST': socket.send
+   'ARTIST_REQUEST': socket.send
  }, [action], socket)
 
   return next(action)

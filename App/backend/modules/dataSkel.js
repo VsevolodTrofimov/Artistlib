@@ -11,9 +11,9 @@ module.exports.defaultDatabaseState = () => {
 
 module.exports.artistInit = (artist, link) => {
   return {
-    [artist]: {
+    [id.next().toString()]: {
       link,
-      'id': id.next(),
+      'name': artist,
       'tags': [],
       'usertags': {}
     }

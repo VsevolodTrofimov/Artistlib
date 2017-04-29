@@ -8,14 +8,15 @@ const log_instance = logging({
   'stdout': true,
   'file': __dirname + '/logs/run-' + dateformat(new Date(), 'mm-dd-yyyy_HH-MM') + '.log'
 });
-const websocket_handler = require('./modules/websocket');
 const database = require('./modules/databaseWrapper');
-const db = database('db.json', 0.5);
+const db = database('db.json', 7);
+const websocket_handler = require('./modules/websocket');
 const handlers = require('./modules/handlers');
 const dataSkel = require('./modules/dataSkel');
 const idGenerator = require('./modules/idGenerator');
 const factories = require('./modules/factoryBulkRequire');
 
+const SERVE_DIR = '../dist';
 // actionFactory imports
 // import tagAdd from '../App/common/actionFactories/tagAdd';
 
@@ -26,7 +27,7 @@ const id = idGenerator();
 
 // ===
 log('Starting artist-library...');
-app.use(express.static('test'));
+app.use(express.static(SERVE_DIR));
 app.listen(80, /*process.env.PORT,*/ () => {
   log('Web-server is in listen mode.')
 });
