@@ -16,7 +16,7 @@ const dataSkel = require('./modules/dataSkel');
 const idGenerator = require('./modules/idGenerator');
 const factories = require('./modules/factoryBulkRequire');
 
-const SERVE_DIR = '../dist';
+const SERVE_DIR = '../dist/';
 const SERVE_PORT = process.env.OPENSHIFT_NODEJS_PORT || 80;
 const SERVE_IP = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
 
