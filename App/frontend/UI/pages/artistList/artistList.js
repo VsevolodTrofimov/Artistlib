@@ -12,12 +12,14 @@ export default class ArtistList extends React.Component {
     let artistList = this.props.artists.map((artist, idx) => {
       return (
         <Artist
-          idx  = {artist.id}
+          id  = {artist.id}
           key  = {artist.id}
           name = {artist.name}
           tags = {artist.tags}
           tagAdder = {this.props.tagAdder}
           tagRemover = {this.props.tagRemover}
+
+          artistRemover = {this.props.artistRemover}
         />)
     })
 

@@ -13,8 +13,6 @@ function appReducer(state, action) {
         }
       })
 
-      console.log(newState === state, newState.artists === state.artists)
-
       return newState
 
     default:

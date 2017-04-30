@@ -3,7 +3,7 @@ import gradientToStyle from '~/utility/gradientToStyle'
 
 export default class NameBlock extends React.Component {
   render() {
-    let styles = gradientToStyle(this.props.idx)
+    let styles = {} //gradientToStyle(this.props.idx)
     let textStyles = {}
 
     if(this.props.name.length > 12) {

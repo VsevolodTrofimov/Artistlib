@@ -2,11 +2,11 @@ import { connect } from 'react-redux'
 
 import tagAdd from '@/actionFactories/tagAdd'
 import tagRemove from '@/actionFactories/tagRemove'
+import artistRemove from '@/actionFactories/artistRemove'
 
 import ArtistList from './artistList'
 
 function getVisibleArtists(artists, includedTags, excludedTags) {
-  console.log(arguments)
   function checkForIncluded(tags) {
     let found = 0
 
@@ -36,7 +36,7 @@ function getVisibleArtists(artists, includedTags, excludedTags) {
 function mapStateToProps(state) {
   return {
     artists: getVisibleArtists(state.artists,
-      state.filters.includedTags, state.filters.excludedTags)
+      state.filters.includedTags, state.filters.excludedTags).reverse()
   }
 }
 
@@ -47,6 +47,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     tagRemover: (artistId, tagType, tagValue) => {
       dispatch(tagRemove.factory(artistId, tagType, tagValue))
+    },
+    artistRemover: (artistId) => {
+      dispatch(artistRemove.factory(artistId))
     }
   }
 }

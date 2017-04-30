@@ -1,7 +1,5 @@
 import { connect } from 'react-redux'
 
-import artistAdd from '@/actionFactories/artistAdd'
-
 import Menu from './menu'
 
 function mapStateToProps(state) {

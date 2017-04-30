@@ -3,6 +3,7 @@ export default class AppSocket {
     this.recoveryInterval = undefined
     this.queue = []
     this.subscribers = []
+    this.reconnectActions = []
 
     this.state = '...'
 
@@ -16,9 +17,11 @@ export default class AppSocket {
     this.state = 'connecting'
 
     this.socket.onopen = function() {
-      // console.log('OPENED')
       self.state = 'open'
-      if(self.recoveryInterval) clearInterval(self.recoveryInterval)
+      if(self.recoveryInterval) {
+        self.reconnectActions.forEach((cb) => cb())
+        clearInterval(self.recoveryInterval)
+      }
 
       self.queue.forEach(function(actionString) {
         self.send(actionString)
@@ -31,7 +34,6 @@ export default class AppSocket {
       self.state = 'closed'
       if( ! event.wasClean) {
         self.recoveryInterval = setInterval(function() {
-          // console.log("RECONNECTION, STATE:", self.state)
           if(self.state !== 'connecting' && self.state !== 'open') {
             self.startSocket()
           } else {
@@ -57,12 +59,20 @@ export default class AppSocket {
     return unsubscribe
   }
 
+  onReconnect(cb) {
+    function unsubscribe() {
+      this.reconnectActions.splice(this.reconnectActions.indexOf(cb), 1)
+    }
+    this.reconnectActions.push(cb)
+
+    return unsubscribe
+  }
+
   send(action) {
     let actionString = JSON.stringify(action)
     if(this.state === 'open') {
       this.socket.send(actionString)
     } else {
-      console.log(this.queue)
       this.queue.push(actionString)
     }
   }

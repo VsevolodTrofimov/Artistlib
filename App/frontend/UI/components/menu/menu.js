@@ -16,6 +16,7 @@ export default class Menu extends React.Component {
           <div className='menu__content'>
             {this.props.children}
           </div>
+          <div className='menu__overlay' />
         </div>
       )
     } else {
