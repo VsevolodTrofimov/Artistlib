@@ -1,0 +1,4 @@
+.auth {
+  height: calc(100vh - 2 * var(--margin-m));
+  width: calc(100vh - 2 * var(--margin-m));
+}
