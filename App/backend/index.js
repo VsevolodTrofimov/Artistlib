@@ -72,5 +72,6 @@ var increment = () => {
 
 id.addIncrementListener(increment);
 
+proces.title = 'artist-library';
 process.on('SIGINT', safe_exit);
 process.on('SIGTERM', safe_exit);
