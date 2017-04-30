@@ -17,7 +17,7 @@
 }
 
 .artist__card__name {
-  font-weight: 700;
+  font-weight: 400;
   font-size: var(--font-xl);
   margin: 0;
   color: var(--black);

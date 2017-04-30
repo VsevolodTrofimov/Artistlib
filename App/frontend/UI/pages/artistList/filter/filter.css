@@ -8,7 +8,7 @@
 }
 
 .inputRow button {
-  font-weight: 600;
+  font-weight: 500;
   background: transparent;
   font-size: var(--font-m);
   border: 2px solid var(--black);
