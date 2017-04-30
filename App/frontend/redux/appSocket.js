@@ -13,7 +13,9 @@ export default class AppSocket {
   startSocket() {
     let self = this
 
-    this.socket = new WebSocket("ws://localhost:8001");
+    var host = location.origin.replace(/^http/, 'ws');
+
+    this.socket = new WebSocket(host);
     this.state = 'connecting'
 
     this.socket.onopen = function() {

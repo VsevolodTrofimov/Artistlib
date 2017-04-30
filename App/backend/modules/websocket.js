@@ -2,7 +2,7 @@
 const gauth = require('google-auth-library');
 // module dependencies
 const logging = require('./logging');
-const ws = require('nodejs-websocket');
+const ws = require('ws');
 const curry = require('./curry');
 const buildArtists = require('./buildArtists');
 const authFactory = require('./factoryBulkRequire').userAuth;
@@ -16,10 +16,11 @@ const client = new auth.OAuth2(CLIENT_ID, '', '');
 
 class WebsocketRequestHandler {
 
-  constructor(port) {
-    var self = this;
-    this._port = port;
-    this._server = ws.createServer((connection) => {
+  constructor(server) {
+    this._server = new ws.Server({server});
+    let self = this;
+
+    this._server.on('connection', (socket) => {
       var userid;
       log('New connection.');
 
@@ -33,14 +34,14 @@ class WebsocketRequestHandler {
           if(!e) {
             userid = login.getPayload()['sub'];
             log('User authentication complete.');
-            connection.sendText(JSON.stringify(buildArtists(userid)));
+            socket.send(JSON.stringify(buildArtists(userid)));
           } else {
             log('Authentication failed: ' + e.toString());
           }
         });
       }
 
-      connection.on('text', (data) => {
+      socket.on('message', (data) => {
         let ev;
         try {
           ev = JSON.parse(data);
@@ -51,23 +52,23 @@ class WebsocketRequestHandler {
 
         if (ev.type !== authFactory.type) {
           let response = self.handle(ev, userid);
-          if (response) connection.sendText(JSON.stringify(response));
+          if (response) socket.send(JSON.stringify(response));
         } else {
           auth(ev);
         }
       });
 
-      connection.on('close', (code, reason) => {
+      socket.on('close', () => {
         log('Connection closed.');
       });
 
-      connection.on('error', (err) => {
+      socket.on('error', () => {
         log('Connection error with a client.');
       });
-
     });
 
     this.handlers = {};
+    log('Websocket server is in listen mode.');
   }
 
   handle(ev, userid) {
@@ -87,13 +88,5 @@ class WebsocketRequestHandler {
     return response;
   }
 
-  listen() {
-    if (typeof this._server !== 'undefined') {
-      this._server.listen(this._port);
-      log('Listening on port ' + this._port.toString() + '.');
-    }
-  }
-
 }
-
 module.exports = WebsocketRequestHandler;
