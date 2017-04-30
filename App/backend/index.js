@@ -17,13 +17,16 @@ const idGenerator = require('./modules/idGenerator');
 const factories = require('./modules/factoryBulkRequire');
 
 const SERVE_DIR = '../dist';
+const SERVE_PORT = process.env.OPENSHIFT_NODEJS_PORT || 80;
+const SERVE_IP = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
+
 // actionFactory imports
 // import tagAdd from '../App/common/actionFactories/tagAdd';
 
 // dependency init
 const app = express()
 .use(express.static(SERVE_DIR))
-.listen(process.env.PORT || 80, () => {
+.listen(SERVE_PORT, SERVE_IP, () => {
   log('Web-server is in listen mode.')
 });
 
