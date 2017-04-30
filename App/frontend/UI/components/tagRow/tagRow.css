@@ -6,6 +6,10 @@
   margin-bottom: var(--margin-s);
 }
 
-.tagRow input {
+.tagRow .input {
   margin: 0 var(--margin-s) var(--margin-s) 0;
+}
+
+.tagRow input {
+  margin-top: 1px;
 }
