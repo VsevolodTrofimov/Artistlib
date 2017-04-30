@@ -1,10 +1,10 @@
 const type = 'ARTIST_REQUEST'
 
-function artistRequestFactory(name, url) {
+function artistRequestFactory(name, tag) {
   return {
     type,
     name,
-    url
+    url: `http://danbooru.donmai.us/posts?tags=${tag}+order%3Ascore`
   }
 }
 

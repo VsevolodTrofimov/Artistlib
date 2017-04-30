@@ -61,13 +61,13 @@ module.exports.tagAddRemoveHandler = (ev, userid) => {
 
 module.exports.artistAddRemoveHandler = (ev, userid) => {
   let log = curry.call(log_instance, log_instance.log)('artistAddRemoveHandler');
-  let artist = ev.name.toString();
   let user = userid.toString();
   let root = db.getRoot();
   log(`Processing request for ${user}.`);
 
   switch (ev.type) {
     case factories.artistRequest.type:
+      let artist = ev.name.toString();
       let url = ev.url;
       if (typeof root.artists[artist] !== 'undefined') {
         log(`Artist '${artist}' already exists, aborting.`);
@@ -81,12 +81,13 @@ module.exports.artistAddRemoveHandler = (ev, userid) => {
       break;
 
     case factories.artistRemove.type:
-      if (typeof root.artists[artist] === 'undefined') {
-        log(`Artist with id '${artist}' doesn't exist, aborting.`);
+      let artistId = ev.id.toString();
+      if (typeof root.artists[artistId] === 'undefined') {
+        log(`Artist with id '${artistId}' doesn't exist, aborting.`);
         return;
       }
-      let name = root.artists[artist].name;
-      delete root.artists[artist];
+      let name = root.artists[artistId].name;
+      delete root.artists[artistId];
       log(`Artist ${name} removed.`);
       break;
 
