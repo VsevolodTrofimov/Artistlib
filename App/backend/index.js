@@ -30,6 +30,8 @@ const app = express()
   log('Web-server is in listen mode.')
 });
 
+console.log(__dirname);
+
 const log = curry.call(log_instance, log_instance.log)('main app');
 const id = idGenerator();
 
