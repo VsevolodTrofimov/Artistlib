@@ -1,0 +1,18 @@
+[04/30/17 15:15][main app] Starting artist-library...
+[04/30/17 15:15][WebsocketRequestHandler] Websocket server is in listen mode.
+[04/30/17 15:15][main app] Web-server is in listen mode.
+[04/30/17 15:15][DatabaseWrapper] JSON loaded into RAM copy.
+[04/30/17 15:15][DatabaseWrapper] JSON loaded into RAM copy.
+[04/30/17 15:15][WebsocketRequestHandler] New connection.
+[04/30/17 15:15][WebsocketRequestHandler] User authentication complete.
+[04/30/17 15:15][tagAddRemoveHandler] Processing request for 115422809396962217512.
+[04/30/17 15:15][tagAddRemoveHandler] Tag 'хуййййййй' added to personal tags for artist 'ricegnat'.
+[04/30/17 15:15][tagAddRemoveHandler] Processing request for 115422809396962217512.
+[04/30/17 15:15][tagAddRemoveHandler] Tag 'yeah_boiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii' added to personal tags for artist 'ricegnat'.
+[04/30/17 15:15][tagAddRemoveHandler] Processing request for 115422809396962217512.
+[04/30/17 15:15][tagAddRemoveHandler] Removing tag 'yeah_boiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii' from artist 'ricegnat'.
+[04/30/17 15:15][tagAddRemoveHandler] Processing request for 115422809396962217512.
+[04/30/17 15:15][tagAddRemoveHandler] Removing tag 'хуййййййй' from artist 'ricegnat'.
+[04/30/17 15:20][main app] Terminating.
+[04/30/17 15:20][DatabaseWrapper] Dumping current database state to disk.
+[04/30/17 15:20][DatabaseWrapper] Database state successfully dumped.
