@@ -21,19 +21,23 @@ const SERVE_DIR = '../dist';
 // import tagAdd from '../App/common/actionFactories/tagAdd';
 
 // dependency init
-const app = express();
+const app = express()
+.use(express.static(SERVE_DIR))
+.listen(process.env.PORT || 80, () => {
+  log('Web-server is in listen mode.')
+});
+
 const log = curry.call(log_instance, log_instance.log)('main app');
 const id = idGenerator();
 
 // ===
 log('Starting artist-library...');
-app.use(express.static(SERVE_DIR));
-app.listen(process.env.PORT, () => {
-  log('Web-server is in listen mode.')
-});
+// app.use(express.static(SERVE_DIR));
+// app.listen(process.env.PORT || 80, () => {
+//   log('Web-server is in listen mode.')
+// });
 
-var ws = new websocket_handler(8001);
-ws.listen();
+var ws = new websocket_handler(app);
 
 ws.handlers[factories.tagAdd.type] = handlers.tagAddRemoveHandler;
 ws.handlers[factories.tagRemove.type] = handlers.tagAddRemoveHandler;
@@ -45,7 +49,6 @@ db.forceUpdate().then(() => {
   if ( ! root.hasOwnProperty('artists')) {
     log('Initializing default database state...');
     Object.assign(root, dataSkel.defaultDatabaseState());
-    Object.assign(root.artists, dataSkel.artistInit('ricegnat', 'dunno'));
   }
   id.setOffset(root.id_offset);
 });
