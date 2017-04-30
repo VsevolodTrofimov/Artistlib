@@ -5,7 +5,8 @@
   "main": "./App/backend/index.js",
   "scripts": {
     "start": "sh serve.sh",
-    "stop": "pkill --signal SIGINT artist-library"
+    "stop": "pkill --signal SIGINT artist-library",
+    "restart": "pkill --signal SIGINT artist-library && sh serve.bat"
   },
   "author": "VsevolodTrofimov, StargazingTux aka brotheroftux",
   "license": "MIT",
