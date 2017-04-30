@@ -28,18 +28,12 @@ const id = idGenerator();
 // ===
 log('Starting artist-library...');
 app.use(express.static(SERVE_DIR));
-app.listen(80, /*process.env.PORT,*/ () => {
+app.listen(process.env.PORT, () => {
   log('Web-server is in listen mode.')
 });
 
 var ws = new websocket_handler(8001);
 ws.listen();
-// test handler
-ws.handlers.authtest = (ev, userid) => {
-  log('Oh hey!');
-  log('Hello dear ' + userid.toString() + '!');
-  log(ev.data.toString());
-}
 
 ws.handlers[factories.tagAdd.type] = handlers.tagAddRemoveHandler;
 ws.handlers[factories.tagRemove.type] = handlers.tagAddRemoveHandler;
