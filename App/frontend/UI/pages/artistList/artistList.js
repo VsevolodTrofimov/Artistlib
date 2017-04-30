@@ -15,6 +15,7 @@ export default class ArtistList extends React.Component {
           id  = {artist.id}
           key  = {artist.id}
           name = {artist.name}
+          url = {artist.url}
           tags = {artist.tags}
           tagAdder = {this.props.tagAdder}
           tagRemover = {this.props.tagRemover}

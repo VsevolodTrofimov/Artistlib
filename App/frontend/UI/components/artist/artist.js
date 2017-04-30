@@ -17,7 +17,9 @@ export default class Artist extends React.Component {
 
     return (
       <div className='row artist'>
-        <NameBlock idx={this.props.id} name={this.props.name} />
+        <a href={this.props.url} className='artist__url'>
+          <NameBlock idx={this.props.id} name={this.props.name} />
+        </a>
         <div className='column artist__tags'>
           <TagRow
             type = 'global'

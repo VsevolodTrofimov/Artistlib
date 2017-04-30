@@ -5,16 +5,8 @@ const defaultState = {
     includedTags: [],
     excludedTags: []
   },
-  lastId: 0,
   authToken: undefined,
-  artists: [{
-    id: 7,
-    name: 'ke-ta',
-    tags: {
-      global: new Set(['gg', 'lalal']),
-      personal: new Set(['top', 'hope'])
-    }
-  }]
+  artists: []
 }
 
 export default defaultState
