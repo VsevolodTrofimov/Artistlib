@@ -26,6 +26,8 @@
 
 .artist__url {
   text-decoration: none;
+  align-self: stretch;
+  display: flex;
 }
 
 .artist__tags {
