@@ -1,1 +1,1 @@
-web: cd ./App/backend && mkdir logs & node ./index.js
+web: mkdir ./App/backend/logs & node ./App/backend/index.js
