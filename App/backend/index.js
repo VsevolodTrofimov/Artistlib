@@ -30,8 +30,6 @@ const app = express()
   log('Web-server is in listen mode.')
 });
 
-console.log(__dirname);
-
 const log = curry.call(log_instance, log_instance.log)('main app');
 const id = idGenerator();
 
@@ -72,6 +70,6 @@ var increment = () => {
 
 id.addIncrementListener(increment);
 
-proces.title = 'artist-library';
+process.title = 'artist-library';
 process.on('SIGINT', safe_exit);
 process.on('SIGTERM', safe_exit);
