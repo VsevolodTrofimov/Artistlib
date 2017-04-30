@@ -2,9 +2,9 @@
   "name": "artist-library",
   "version": "1.0.0",
   "description": "Link storage for organizing a list of your favourite Danbooru artists.",
-  "main": "./App/backend/index.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node ./App/backend/index.js"
+    "start": "cd App/backend && node index.js"
   },
   "author": "VsevolodTrofimov, StargazingTux aka brotheroftux",
   "license": "MIT",
