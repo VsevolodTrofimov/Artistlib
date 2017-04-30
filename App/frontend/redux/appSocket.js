@@ -13,7 +13,7 @@ export default class AppSocket {
   startSocket() {
     let self = this
 
-    var host = location.origin.replace(/^http/, 'ws');
+    var host = location.origin.replace(/^http/, 'ws') + ':8000';
 
     this.socket = new WebSocket(host);
     this.state = 'connecting'
