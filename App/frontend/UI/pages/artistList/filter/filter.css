@@ -20,7 +20,7 @@
   margin-bottom: var(--margin-s);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 910px) {
   .inputRow>div {
     margin-top: var(--margin-m);
     width: 100%;

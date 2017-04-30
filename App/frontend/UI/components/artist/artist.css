@@ -9,7 +9,6 @@
 }
 
 .artist__card {
-  margin-right: var(--margin-m);
   padding: 0 var(--margin-m);
   height: 112px;
   border-right: var(--border);
@@ -35,6 +34,7 @@
 
 .artist__tags {
   flex: 1;
+  margin: 0 var(--margin-m);
 }
 
 .artist:hover .artist__actions {
@@ -59,11 +59,18 @@
 
 @media (max-width: 910px) {
   .artist__card {
-    margin-bottom: var(--margin-m);
-    margin-right: 0;
+    border-bottom: var(--border);
+    border-right: 0;
     width: 100%;
   }
-  .row.artist {
-    margin-bottom: calc(var(--margin-m) * 2);
+  .artist__url {
+    width: 100%;
+  }
+  .artist__tags {
+    padding: var(--font-m) 0;
+  }
+  .artist {
+    margin-bottom: var(--margin-m);
+    border-top: var(--border);
   }
 }

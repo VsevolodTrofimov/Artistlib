@@ -6,18 +6,19 @@ export default class NameBlock extends React.Component {
     let styles = gradientToStyle(this.props.idx)
     let textStyles = {}
 
-    if(this.props.name.length > 12) {
+    if(this.props.name.length > 11) {
       textStyles.fontSize = 'var(--font-l)'
     }
 
     let el = (
-      <div className='column artist__card items-center'>
+      <div className='column items-center artist__card'>
         <h2 className='artist__card__name' style={textStyles}>
           {this.props.name}
         </h2>
-        <div className='artist__card__underline' style={styles}></div>
       </div>
     )
+
+    //        <div className='artist__card__underline' style={styles}></div>
 
     return el
   }

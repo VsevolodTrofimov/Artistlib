@@ -3,7 +3,6 @@
   color: var(--black);
   padding: var(--margin-s);
   margin: 0 var(--margin-s) var(--margin-s) 0;
-  border-radius: 2px;
   font-size: var(--font-m);
 }
 
