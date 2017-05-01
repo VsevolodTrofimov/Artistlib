@@ -1,9 +1,7 @@
 import React from 'react'
-import gradientToStyle from '~/utility/gradientToStyle'
 
 export default class NameBlock extends React.Component {
   render() {
-    let styles = gradientToStyle(this.props.idx)
     let textStyles = {}
 
     if(this.props.name.length > 11) {
@@ -17,8 +15,6 @@ export default class NameBlock extends React.Component {
         </h2>
       </div>
     )
-
-    //        <div className='artist__card__underline' style={styles}></div>
 
     return el
   }
