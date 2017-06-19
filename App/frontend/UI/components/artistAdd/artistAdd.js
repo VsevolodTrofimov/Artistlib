@@ -5,7 +5,7 @@ import Input from '~/UI/components/input/input'
 import PersonIcon from '~/static/icons/person.svg'
 import LinkIcon from '~/static/icons/link.svg'
 
-export default class artistAdd extends React.Component {
+export default class ArtistAdd extends React.Component {
   constructor(props) {
     super(props)
     this.artistAdd = this.artistAdd.bind(this)

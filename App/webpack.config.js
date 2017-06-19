@@ -1,6 +1,6 @@
 var env = 'base'
 
-if(process.argv.indexOf('--p') + 1 || process.argv.indexOf('--prodcution') + 1) {
+if(process.env.NODE_ENV === 'production') {
   env = 'production'
 }
 
